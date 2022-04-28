@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="row ">
+
+{#        можно сделать что-то типо фильтра по городам#}
+{#        {% for city in cities %}#}
+            <div class="col-sm-4">
+                <div class="card bg-warning text-white mt-sm-4">
+                    <div class="card-body">
+                        <div style="text-align: center">
+                            Kyiv
+                        </div>
+                    </div>
+                </div>
+            </div>
+{#        {% endfor %}#}
+    </div><br>
+
+    {% for ad in ads %}
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h5 class="card-title">{{ ad.name }}</h5>
+                <p class="card-text">{{ ad.text }}</p>
+{#                <p class="card-text">Owner: {{ ad.owner_number }}</p>#}
+                <p class="card-text">Address: {{ ad.address }}</p>
+                <a href="{{ path('single_ad', {'ad': ad.id }) }}" class="btn btn-light">Read more</a>
+            </div>
+        </div><br>
+    {% endfor %}
+
+{% endblock %}
