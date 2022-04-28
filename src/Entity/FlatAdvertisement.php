@@ -34,7 +34,7 @@ class FlatAdvertisement
      */
     public function __construct($created_at)
     {
-        $this->created_at = new DateTimeImmutable($date, new DateTimeZone('Europe/Berlin'));
+        $this->created_at = new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin'));
     }
 
     /**
