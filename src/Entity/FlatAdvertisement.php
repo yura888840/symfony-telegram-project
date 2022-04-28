@@ -1,9 +1,12 @@
 <?php
 
-use App\Repository\FlatAdvertisement;
+namespace App\Entity;
+
+use App\Repository\FlatAdvertisementRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: FlatAdvertisementRepository:::class)]
+#[ORM\Entity(repositoryClass: FlatAdvertisementRepository::class)]
 class FlatAdvertisement
 {
     #[ORM\Id]
