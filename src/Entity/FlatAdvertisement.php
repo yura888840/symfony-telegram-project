@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\FlatAdvertisementRepository;
 use DateTimeImmutable;
+use DateTimeZone;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FlatAdvertisementRepository::class)]
@@ -12,30 +13,33 @@ class FlatAdvertisement
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private mixed $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $land;
+    private mixed $land;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $city;
+    private mixed $city;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $address;
+    private mixed $address;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $owner_number;
+    private mixed $owner_number;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $status;
+    private mixed $additional_info;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private mixed $status;
 
     #[ORM\Column(type: 'datetime')]
-    private $created_at;
+    private DateTimeImmutable $created_at;
 
     /**
-     * @param $created_at
+     * @throws \Exception
      */
-    public function __construct($created_at)
+    public function __construct()
     {
         $this->created_at = new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin'));
     }
@@ -43,7 +47,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId(): mixed
     {
         return $this->id;
     }
@@ -52,7 +56,7 @@ class FlatAdvertisement
      * @param mixed $id
      * @return FlatAdvertisement
      */
-    public function setId($id)
+    public function setId(mixed $id): static
     {
         $this->id = $id;
         return $this;
@@ -61,7 +65,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getLand()
+    public function getLand(): mixed
     {
         return $this->land;
     }
@@ -70,7 +74,7 @@ class FlatAdvertisement
      * @param mixed $land
      * @return FlatAdvertisement
      */
-    public function setLand($land)
+    public function setLand(mixed $land): static
     {
         $this->land = $land;
         return $this;
@@ -79,7 +83,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getCity()
+    public function getCity(): mixed
     {
         return $this->city;
     }
@@ -88,7 +92,7 @@ class FlatAdvertisement
      * @param mixed $city
      * @return FlatAdvertisement
      */
-    public function setCity($city)
+    public function setCity(mixed $city): static
     {
         $this->city = $city;
         return $this;
@@ -97,7 +101,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getAddress()
+    public function getAddress(): mixed
     {
         return $this->address;
     }
@@ -106,7 +110,7 @@ class FlatAdvertisement
      * @param mixed $address
      * @return FlatAdvertisement
      */
-    public function setAddress($address)
+    public function setAddress(mixed $address): static
     {
         $this->address = $address;
         return $this;
@@ -115,7 +119,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getOwnerNumber()
+    public function getOwnerNumber(): mixed
     {
         return $this->owner_number;
     }
@@ -124,7 +128,7 @@ class FlatAdvertisement
      * @param mixed $owner_number
      * @return FlatAdvertisement
      */
-    public function setOwnerNumber($owner_number)
+    public function setOwnerNumber(mixed $owner_number): static
     {
         $this->owner_number = $owner_number;
         return $this;
@@ -133,7 +137,7 @@ class FlatAdvertisement
     /**
      * @return mixed
      */
-    public function getStatus()
+    public function getStatus(): mixed
     {
         return $this->status;
     }
@@ -142,7 +146,7 @@ class FlatAdvertisement
      * @param mixed $status
      * @return FlatAdvertisement
      */
-    public function setStatus($status)
+    public function setStatus(mixed $status): static
     {
         $this->status = $status;
         return $this;
@@ -164,5 +168,21 @@ class FlatAdvertisement
     {
         $this->created_at = $created_at;
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdditionalInfo(): mixed
+    {
+        return $this->additional_info;
+    }
+
+    /**
+     * @param mixed $additional_info
+     */
+    public function setAdditionalInfo(mixed $additional_info): void
+    {
+        $this->additional_info = $additional_info;
     }
 }
