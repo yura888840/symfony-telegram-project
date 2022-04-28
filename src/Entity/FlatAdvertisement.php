@@ -164,7 +164,7 @@ class FlatAdvertisement
      * @param DateTimeImmutable $created_at
      * @return FlatAdvertisement
      */
-    public function setCreatedAt(DateTimeImmutable $created_at): FlatAdvertisement
+    public function setCreatedAt(DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
         return $this;
@@ -180,9 +180,11 @@ class FlatAdvertisement
 
     /**
      * @param mixed $additional_info
+     * @return FlatAdvertisement
      */
-    public function setAdditionalInfo(mixed $additional_info): void
+    public function setAdditionalInfo(mixed $additional_info): static
     {
         $this->additional_info = $additional_info;
+        return $this;
     }
 }
