@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\FlatAdvertisementRepository;
+use DateTime;
 use DateTimeImmutable;
 use DateTimeZone;
 use Doctrine\ORM\Mapping as ORM;
@@ -34,14 +35,14 @@ class FlatAdvertisement
     private mixed $status;
 
     #[ORM\Column(type: 'datetime')]
-    private DateTimeImmutable $created_at;
+    private DateTime $created_at;
 
     /**
      * @throws \Exception
      */
     public function __construct()
     {
-        $this->created_at = new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin'));
+        $this->created_at = new DateTime('now', new DateTimeZone('Europe/Berlin'));
     }
 
     /**
@@ -153,18 +154,18 @@ class FlatAdvertisement
     }
 
     /**
-     * @return DateTimeImmutable
+     * @return DateTime
      */
-    public function getCreatedAt(): DateTimeImmutable
+    public function getCreatedAt(): DateTime
     {
         return $this->created_at;
     }
 
     /**
-     * @param DateTimeImmutable $created_at
+     * @param DateTime $created_at
      * @return FlatAdvertisement
      */
-    public function setCreatedAt(DateTimeImmutable $created_at): static
+    public function setCreatedAt(DateTime $created_at): static
     {
         $this->created_at = $created_at;
         return $this;
