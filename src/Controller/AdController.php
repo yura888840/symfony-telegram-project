@@ -12,6 +12,12 @@ use Doctrine\Persistence\ManagerRegistry as PersistenceManagerRegistry;
 
 class AdController extends AbstractController
 {
+    #[Route('/', name: 'homepage')]
+    public function homepage(): Response
+    {
+        return $this->redirectToRoute('admin');
+    }
+
     #[Route('/home', name: 'home')]
     public function index(PersistenceManagerRegistry $doctrine): Response
     {
